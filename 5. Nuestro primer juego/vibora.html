@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas width="600" height="400">
+
+    </canvas>
+    <script>
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");
+        pincel.fillStyle = "lightgrey";
+        pincel.fillRect(0, 0, 600, 400);
+
+        var radio = 10;
+        var xAleatorio;
+        var yAleatorio;
+
+        function dCirculos(x, y, radio, color) {
+
+            pincel.fillStyle = color;
+            pincel.beginPath();
+            pincel.arc(x, y, radio, 0, 2 * Math.PI);
+            pincel.fill();
+        }
+
+        function limpiar() {
+            pincel.clearRect(0, 0, 600, 400);
+        }
+        var x = 0;
+
+        
+
+        function dObjetivo(x, y) {
+            dCirculos(x, y, radio + 20, "red");
+            dCirculos(x, y, radio + 10, "white");
+            dCirculos(x, y, radio , "red");
+        }
+
+        function sPosicion(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        function actualizar() {
+            limpiar();
+            xAleatorio = sPosicion(600);
+            yAleatorio = sPosicion(400);
+            console.log(xAleatorio, yAleatorio);
+            dObjetivo(xAleatorio, yAleatorio);
+            x++;
+        }
+
+        setInterval(actualizar, 1000);
+    </script>
+</body>
+
+</html>
