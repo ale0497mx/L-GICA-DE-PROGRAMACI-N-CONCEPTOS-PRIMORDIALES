@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="600" height="400">
+
+    </canvas>
+    <script>
+        var pantalla = document.querySelector('canvas');
+        var pincel = pantalla.getContext("2d");
+
+        function cuadrado(x,y,alto,ancho,color){
+            pincel.fillStyle = color;
+            pincel.fillRect(x, y, alto, ancho);
+            pincel.strokeStyle = "black";
+            pincel.strokeRect(x, y, alto, ancho);
+            
+        }
+       
+        // function sombra(x,y,alto,ancho){
+        //     pincel.strokeStyle = "black";
+        //     pincel.strokeRect(x, y, alto, ancho);
+        // }
+        cuadrado(0,0,50,50,"green");
+       
+        cuadrado(0,50,50,50,"red");
+       
+        cuadrado(0,100,50,50,"yellow");
+        // pincel.fillStyle = "green";
+        // pincel.fillRect(0, 0, 50, 50);
+        // pincel.strokeStyle = "black";
+        // pincel.strokeRect(0,0,50,50);
+
+        
+        // pincel.fillRect(50, 0, 50, 50);
+        // pincel.strokeStyle = "black";
+        // pincel.strokeRect(50,0,50,50);
+
+
+    </script>
+</body>
+</html>
